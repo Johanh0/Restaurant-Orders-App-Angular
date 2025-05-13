@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+// import { RouterOutlet } from '@angular/router';
+
+// Components
+import { FilterContainerComponent } from './domains/filter/filter-container/filter-container.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [FilterContainerComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'Restaurant-Orders-App-Angular';

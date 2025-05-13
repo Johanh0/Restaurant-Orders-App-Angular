@@ -1,0 +1,7 @@
+<section class="flex flex-col gap-4">
+  <app-filter-title [categoryTitle]="currentCategory()" />
+  <app-filter
+    (categoryEmitter)="handleCategoryEmitter($event)"
+    [currentCategory]="currentCategory()"
+  />
+</section>

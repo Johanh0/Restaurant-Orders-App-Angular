@@ -1,0 +1,13 @@
+<div>
+  <ul class="flex justify-between w-full">
+    @for (category of dishesCategories; track $index) {
+    <li
+      (click)="sendCurrentCategory(category)"
+      class="border-[2px] border-primary text-primary font-bold px-3 py-2 rounded-md cursor-pointer hover:bg-primary hover:text-white"
+      [ngClass]="currentCategory === category ? 'bg-primary text-white' : ''"
+    >
+      <p>{{ category.charAt(0).toUpperCase() + category.slice(1) }}</p>
+    </li>
+    }
+  </ul>
+</div>
