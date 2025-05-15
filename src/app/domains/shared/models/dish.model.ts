@@ -12,4 +12,5 @@ export interface Dish {
   img: string;
   price: number;
   category: DishCategories;
+  amount: number;
 }

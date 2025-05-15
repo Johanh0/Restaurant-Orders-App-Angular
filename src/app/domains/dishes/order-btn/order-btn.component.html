@@ -1,1 +1,20 @@
-<p>order-btn works!</p>
+@if(dishDetails.amount < 1){
+<button
+  (click)="addDishFromCart()"
+  class="bg-white border-[2px] border-primary text-primary py-3 px-6 rounded-md cursor-pointer max-w-[140px] min-w-[140px]"
+>
+  add to cart
+</button>
+} @else {
+<div
+  class="flex justify-between bg-primary py-3 px-6 rounded-md text-white max-w-[140px] min-w-[140px]"
+>
+  <div>
+    <button class="cursor-pointer" (click)="removeDishFromCart()">-</button>
+  </div>
+  <div>{{ dishDetails.amount }}</div>
+  <div>
+    <button class="cursor-pointer" (click)="addDishFromCart()">+</button>
+  </div>
+</div>
+}

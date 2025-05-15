@@ -8,6 +8,7 @@ export const dishes: Dish[] = [
     img: '',
     price: 5.0,
     category: 'dinner',
+    amount: 0,
   },
   {
     id: crypto.randomUUID(),
@@ -16,6 +17,7 @@ export const dishes: Dish[] = [
     img: '',
     price: 5.0,
     category: 'dessers',
+    amount: 0,
   },
   {
     id: crypto.randomUUID(),
@@ -24,6 +26,7 @@ export const dishes: Dish[] = [
     img: '',
     price: 5.0,
     category: 'drinks',
+    amount: 0,
   },
 ];
 
