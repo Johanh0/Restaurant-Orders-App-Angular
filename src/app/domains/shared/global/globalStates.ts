@@ -7,3 +7,5 @@ export const currentCategoryState = signal<DishCategories>('dinner');
 export const currentDishesState = signal<Dish[]>(dishes);
 
 export const cartList = signal<Dish[]>([]);
+
+export const cartTotal = signal<number>(0);

@@ -1,1 +1,23 @@
-<p>cart-container works!</p>
+<div class="flex flex-col gap-1 bg-white w-full h-fit p-6 rounded-lg">
+  <div>
+    <h5 class="text-2xl font-bold text-primary">
+      Your Cart ({{ cartFinalList().length }})
+    </h5>
+  </div>
+
+  <div>
+    @for (dish of cartFinalList(); track $index) {
+    <app-cart-list [listDetails]="dish" />
+    }
+  </div>
+
+  <div class="flex justify-between items-center py-8">
+    <div>
+      <p class="text-gray-600">Order Total</p>
+    </div>
+
+    <div>
+      <p class="text-3xl font-bold">$ {{ total() }}</p>
+    </div>
+  </div>
+</div>

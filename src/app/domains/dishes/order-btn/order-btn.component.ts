@@ -1,7 +1,7 @@
 import { Component, Input, signal } from '@angular/core';
 
 // Global State
-import { cartList } from '../../shared/global/globalStates';
+import { cartList, cartTotal } from '../../shared/global/globalStates';
 
 // Models
 import { Dish } from '../../shared/models/dish.model';
@@ -15,13 +15,14 @@ export class OrderBtnComponent {
   @Input({ required: true }) dishDetails!: Dish;
 
   cart = cartList;
+  total = cartTotal;
+
   dishAmount = signal(this.dishDetails?.amount);
 
   addDishFromCart() {
     const findDish = this.cart().find(
       (dish) => dish.id === this.dishDetails?.id
     );
-
     if (findDish) {
       findDish.amount = findDish.amount + 1;
     } else {
@@ -30,8 +31,23 @@ export class OrderBtnComponent {
         ? [...this.cart(), this.dishDetails]
         : [];
 
+      // const addTotal = this.dishDetails.price + this.total();
+      const addTotal = this.cart().map((dish) => dish.amount);
+      console.log(addTotal);
       this.cart.set(addNewDish);
+      // this.total.set(addTotal);
     }
+
+    const addTotal = this.cart().map((dish) => {
+      const price = dish.price;
+      const amount = dish.amount;
+
+      const total = price * amount;
+      return total;
+    });
+
+    const finalTotal = addTotal.reduce((a, b) => a + b);
+    this.total.set(finalTotal);
   }
 
   removeDishFromCart() {
@@ -41,14 +57,14 @@ export class OrderBtnComponent {
 
     if (findDish) {
       findDish.amount = findDish.amount - 1;
-      console.log(this.cart());
-    } else {
-      this.dishDetails.amount = -1;
-      const addNewDish: Dish[] = this.dishDetails
-        ? [...this.cart(), this.dishDetails]
-        : [];
+      this.total.set(this.total() - findDish?.price);
+    }
 
-      this.cart.set(addNewDish);
+    if (findDish?.amount === 0) {
+      const removeDish = this.cart().filter(
+        (dish) => dish.id !== this.dishDetails.id
+      );
+      this.cart.set(removeDish);
     }
   }
 }
