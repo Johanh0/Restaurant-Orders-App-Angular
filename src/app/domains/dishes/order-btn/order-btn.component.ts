@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 // Global State
 import { cartList, cartTotal } from '../../shared/global/globalStates';
@@ -17,8 +17,6 @@ export class OrderBtnComponent {
   cart = cartList;
   total = cartTotal;
 
-  dishAmount = signal(this.dishDetails?.amount);
-
   addDishFromCart() {
     const findDish = this.cart().find(
       (dish) => dish.id === this.dishDetails?.id
@@ -33,7 +31,6 @@ export class OrderBtnComponent {
 
       // const addTotal = this.dishDetails.price + this.total();
       const addTotal = this.cart().map((dish) => dish.amount);
-      console.log(addTotal);
       this.cart.set(addNewDish);
       // this.total.set(addTotal);
     }

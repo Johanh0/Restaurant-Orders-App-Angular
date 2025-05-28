@@ -1,9 +1,9 @@
 export type DishCategories =
   | 'appetizer'
   | 'dinner'
-  | 'salads'
-  | 'dessers'
-  | 'drinks';
+  | 'salad'
+  | 'dessert'
+  | 'drink';
 
 export interface Dish {
   id: `${string}-${string}-${string}-${string}-${string}`;

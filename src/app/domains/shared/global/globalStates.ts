@@ -9,3 +9,5 @@ export const currentDishesState = signal<Dish[]>(dishes);
 export const cartList = signal<Dish[]>([]);
 
 export const cartTotal = signal<number>(0);
+
+export const modalStatus = signal<boolean>(false);

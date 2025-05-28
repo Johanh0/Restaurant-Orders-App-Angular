@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, computed } from '@angular/core';
 
 // Components
 import { CardComponent } from '../card/card.component';
@@ -21,5 +21,5 @@ import {
   templateUrl: './dishes-container.component.html',
 })
 export class DishesContainerComponent {
-  dishesFiltered = currentDishesState;
+  dishesFiltered = computed(currentDishesState);
 }

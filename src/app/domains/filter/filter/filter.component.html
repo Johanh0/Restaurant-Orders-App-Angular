@@ -1,9 +1,9 @@
 <div>
-  <ul class="flex justify-between w-full flex-wrap gap-4 sm:gap-0">
+  <ul class="flex justify-between w-full flex-wrap md:flex-nowrap md:gap-2">
     @for (category of categories; track $index) {
     <li
       (click)="sendCurrentCategory(category)"
-      class="w-full sm:w-1/2 border-[2px] border-primary text-primary font-bold px-3 py-2 rounded-md cursor-pointer hover:bg-primary hover:text-white"
+      class="w-fit flex sm:w-1/2 border-[2px] border-primary text-primary font-bold px-3 py-2 rounded-md cursor-pointer hover:bg-primary hover:text-white"
       [ngClass]="currentCategory === category ? 'bg-primary text-white' : ''"
     >
       <p>{{ category.charAt(0).toUpperCase() + category.slice(1) }}</p>
