@@ -3,10 +3,10 @@
     @for (category of categories; track $index) {
     <li
       (click)="sendCurrentCategory(category)"
-      class="w-fit flex sm:w-1/2 border-[2px] border-primary text-primary font-bold px-3 py-2 rounded-md cursor-pointer hover:bg-primary hover:text-white"
+      class="w-fit flex lg:flex-1 border-[2px] border-primary text-primary font-bold px-3 py-2 rounded-md cursor-pointer hover:bg-primary hover:text-white"
       [ngClass]="currentCategory === category ? 'bg-primary text-white' : ''"
     >
-      <p>{{ category.charAt(0).toUpperCase() + category.slice(1) }}</p>
+      {{ category.charAt(0).toUpperCase() + category.slice(1) }}
     </li>
     }
   </ul>

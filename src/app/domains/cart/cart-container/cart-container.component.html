@@ -5,7 +5,7 @@
     </h5>
   </div>
 
-  <div>
+  <div class="max-h-[300px] overflow-scroll">
     @for (dish of cartFinalList(); track $index) {
     <app-cart-list [listDetails]="dish" />
     }

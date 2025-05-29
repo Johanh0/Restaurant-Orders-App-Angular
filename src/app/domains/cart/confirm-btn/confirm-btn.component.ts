@@ -15,5 +15,7 @@ export class ConfirmBtnComponent {
 
   openModal() {
     this.modal.set(true);
+    window.scrollTo(0, 0);
+    document.documentElement.style.overflow = 'hidden';
   }
 }

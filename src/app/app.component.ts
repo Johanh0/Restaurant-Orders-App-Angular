@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 // import { RouterOutlet } from '@angular/router';
 
 // Components
@@ -13,6 +14,7 @@ import { modalStatus } from './domains/shared/global/globalStates';
 @Component({
   selector: 'app-root',
   imports: [
+    CommonModule,
     FilterContainerComponent,
     DishesContainerComponent,
     CartContainerComponent,

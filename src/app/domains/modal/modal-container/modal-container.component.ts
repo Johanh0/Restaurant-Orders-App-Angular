@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+// Components
+import { ModalListComponent } from '../modal-list/modal-list.component';
+
 // Global State
 import {
   cartList,
@@ -9,7 +12,7 @@ import {
 
 @Component({
   selector: 'app-modal-container',
-  imports: [],
+  imports: [ModalListComponent],
   templateUrl: './modal-container.component.html',
 })
 export class ModalContainerComponent {
@@ -28,5 +31,7 @@ export class ModalContainerComponent {
 
     this.listItems.set(updateDishes);
     this.listItems.set([]);
+
+    document.documentElement.style.overflow = 'scroll';
   }
 }
