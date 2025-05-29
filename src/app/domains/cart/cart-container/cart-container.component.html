@@ -1,0 +1,33 @@
+<div class="flex flex-col gap-10 bg-white w-full h-fit p-6 rounded-lg">
+  <div>
+    <h5 class="text-2xl font-bold text-primary">
+      Your Cart ({{ cartFinalList().length }})
+    </h5>
+  </div>
+
+  <div class="max-h-[300px] overflow-scroll">
+    @for (dish of cartFinalList(); track $index) {
+    <app-cart-list [listDetails]="dish" />
+    }
+  </div>
+
+  <div class="flex justify-between items-center">
+    <div>
+      <p class="text-gray-600">Order Total</p>
+    </div>
+
+    <div>
+      <p class="text-3xl font-bold">$ {{ total() }}</p>
+    </div>
+  </div>
+
+  <div>
+    <div class="w-full p-4 bg-soft-primary text-center rounded-md">
+      <p>This is a <span class="font-bold">carbon-neutral</span> delivery</p>
+    </div>
+  </div>
+
+  <div>
+    <app-confirm-btn />
+  </div>
+</div>

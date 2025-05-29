@@ -1,0 +1,26 @@
+<div
+  class="absolute top-0 left-0 w-screen h-full flex justify-center items-center"
+>
+  <div class="absolute bg-black opacity-50 w-full h-full"></div>
+  <div
+    class="grid grid-rows-[auto_1fr_auto] gap-5 w-full max-w-300px mx-5 h-fit bg-white z-10 rounded-md p-5"
+  >
+    <div>
+      <h2 class="font-bold text-3xl">Order Confirmed</h2>
+      <p class="text-gray-400">We hope you enjoy your food!</p>
+    </div>
+    <div class="max-h-[300px] overflow-scroll">
+      @for (dish of listItems(); track $index) {
+      <app-modal-list [listDetails]="dish" />
+      }
+    </div>
+    <div>
+      <button
+        class="w-full py-3 bg-primary text-white rounded-lg cursor-pointer"
+        (click)="closeModal()"
+      >
+        Start New Order
+      </button>
+    </div>
+  </div>
+</div>
